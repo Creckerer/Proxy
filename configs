@@ -1,0 +1,7 @@
+#!/bin/bash
+servdir="/home/wsa-068-11b/proj1"    # choose direction to install proxy
+secret="45925c8ada44f78c8059f337c131b7c1" # use this <head -c 16 /dev/urandom | xxd -ps>
+userNM="nobody"  #user name
+lport="8888"     #local port
+uport="443"      #user port
+works="1"         #number of workers

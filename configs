@@ -4,5 +4,5 @@ userNM="nobody"  #user name
 lport="8888"     #local port
 uport="443"      #user port
 works="1"         #number of workers
-ptag=""           #proxy tag>
+ptag="lolo"           #proxy tag>
 othparam=""       #other param

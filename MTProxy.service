@@ -1,0 +1,13 @@
+. /opt/Proxy/configs
+[Unit]
+Description=MTProxy
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/MTProxy
+ExecStart=/opt/MTProxy/mtproto-proxy -u $userNM -p $lport -H $uport -S "$secret" -P $ptag $othparam
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

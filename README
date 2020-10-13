@@ -1,0 +1,5 @@
+Please do following steps:
+1. Fill all necessary fields in : <configs> file.
+2. Run the script as superuser : <installing_dependencies.sh>
+3. Run the script as superuser : <building_finish.sh>
+4.

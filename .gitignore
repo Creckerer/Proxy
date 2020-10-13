@@ -1,3 +1,5 @@
+.gitignore
 .idea
 test.sh
 rem.sh
+building.sh

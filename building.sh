@@ -7,7 +7,7 @@ if ! apt install -y git curl build-essential libssl-dev zlib1g-dev cron-apt ; th
 exit 1
 fi
 #-------------------------------------------------------------
-cd /opt/ || { echo "Path /opt/"; exit 1; }
+cd /opt/
 #Clone the repo
 git clone https://github.com/TelegramMessenger/MTProxy
  cd /opt/MTProxy || { echo "Path /opt/MTProxy isn't exist"; exit 1; }

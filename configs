@@ -1,8 +1,9 @@
 #!/bin/bash
-secret="45925c8ada44f78c8059f337c131b7c1" # use this <head -c 16 /dev/urandom | xxd -ps>
-userNM="nobody"  #user name
-lport="8888"     #local port
-uport="443"      #user port
-works="1"         #number of workers
-ptag="lolo"           #proxy tag>
-othparam=""       #other param
+DIR_TO_INSTALL="/opt"           #choose directory to install proxy
+SECRET="45925c8ada44f78c8059f337c131b7c1" # use this <head -c 16 /dev/urandom | xxd -ps>
+USER_NM="nobody"  #user name
+L_PORT="-p 8888"     #local port don't forget to write -p
+USR_PORT="443"      #user port
+WORKS="1"         #number of workers
+P_TAG="lolo"           #proxy tag>
+OTH_PARAM=""       #other param

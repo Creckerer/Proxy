@@ -1,5 +1,5 @@
 #!/bin/bash
-DIR_TO_BUILD="/opt"      #choose directory to build proxy
+DIR_TO_BUILD="/opt/proxy"      #choose directory to build proxy
 DIR_TO_INSTALL="/opt/MTProxy_installed"           #choose directory to install proxy
 SECRET="45925c8ada44f78c8059f337c131b7c1" # use this <head -c 16 /dev/urandom | xxd -ps>
 USER_NM="nobody"  #user name

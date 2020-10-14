@@ -20,7 +20,7 @@ mkdir "$DIR_TO_INSTALL" && cp "$DIR_TO_BUILD/MTProxy/objs/bin/mtproto-proxy" "$D
 cd $DIR_TO_INSTALL
 curl -s https://core.telegram.org/getProxySecret -o $DIR_TO_INSTALL/proxy-secret && \
 curl -s https://core.telegram.org/getProxyConfig -o $DIR_TO_INSTALL/proxy-multi.conf || \
-{ echo "CHECK CONFIG FILES"; }
+echo "CHECK CONFIG FILES"
 #---------------------------------------------------------------
 #creating cron rule
 [[ ! -e "/etc/cron.daily/autoproxydaily" ]] && echo "#!/bin/bash

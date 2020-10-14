@@ -4,21 +4,23 @@ START_DIR="$PWD"
 #Clone the repo
 mkdir "$DIR_TO_BUILD"
 cd $DIR_TO_BUILD || { echo "Path isn't exist"; exit 1; }
-git init && git pull https://github.com/TelegramMessenger/MTProxy
+git clone https://github.com/TelegramMessenger/MTProxy || cd $DIR_TO_BUILD/MTProxy && \
+git pull https://github.com/TelegramMessenger/MTProxy
 #Building
-[[ -e "$DIR_TO_INSTALL/mtproto-proxy" ]] && systemctl stop MTProxy.service && echo "SERVICE WAS STOPPED!"
+cd $DIR_TO_BUILD/MTProxy
 if ! make ; then
-echo "Proxy didn't make" 
+echo "BUILD CRASHED"
 make clean
-systemctl start MTProxy.service  && echo "SERVICE STARTED!"
 exit 1
- else echo "Proxy made" 
+ else echo "BUILD DONE"
 fi
-mkdir "$DIR_TO_INSTALL" && cp "$DIR_TO_BUILD/objs/bin/mtproto-proxy" "$DIR_TO_INSTALL/mtproto-proxy"
+[[ -e "$DIR_TO_INSTALL/mtproto-proxy" ]] && systemctl stop MTProxy.service && echo "SERVICE WAS STOPPED!"
+mkdir "$DIR_TO_INSTALL" && cp "$DIR_TO_BUILD/MTProxy/objs/bin/mtproto-proxy" "$DIR_TO_INSTALL/mtproto-proxy"
 #---------------------------------------------------------------
 cd $DIR_TO_INSTALL
-curl -s https://core.telegram.org/getProxySecret -o $DIR_TO_INSTALL/proxy-secret
-curl -s https://core.telegram.org/getProxyConfig -o $DIR_TO_INSTALL/proxy-multi.conf
+curl -s https://core.telegram.org/getProxySecret -o $DIR_TO_INSTALL/proxy-secret && \
+curl -s https://core.telegram.org/getProxyConfig -o $DIR_TO_INSTALL/proxy-multi.conf || \
+{ echo "CHECK CONFIG FILES"; }
 #---------------------------------------------------------------
 #creating cron rule
 [[ ! -e "/etc/cron.daily/autoproxydaily" ]] && echo "#!/bin/bash
